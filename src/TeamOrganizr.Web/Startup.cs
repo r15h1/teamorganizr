@@ -27,11 +27,35 @@ namespace TeamOrganizr.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+              options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+              // Password settings
+              options.Password.RequireDigit = true;
+              options.Password.RequiredLength = 8;
+              options.Password.RequireNonAlphanumeric = false;
+              options.Password.RequireUppercase = true;
+              options.Password.RequireLowercase = false;
+
+              // Lockout settings
+              options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+              options.Lockout.MaxFailedAccessAttempts = 7;
+
+              // User settings
+              options.User.RequireUniqueEmail = true;
+            });
+
+
+            //services.AddAuthentication().AddFacebook(facebookOptions =>
+            //{
+            //  facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+            //  facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            //});
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
@@ -53,7 +77,6 @@ namespace TeamOrganizr.Web
             }
 
             app.UseStaticFiles();
-
             app.UseAuthentication();
 
             app.UseMvc(routes =>

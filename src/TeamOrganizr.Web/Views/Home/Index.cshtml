@@ -1,4 +1,19 @@
-﻿<div aurelia-app="main">Loading...</div>
-@section scripts {
-     <script src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
+﻿@using Microsoft.AspNetCore.Identity
+@using TeamOrganizr.Web.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+  <div aurelia-app="main">Loading...</div>
+  @section scripts {
+    <script src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
+  }
+}
+else
+{
+  <script>
+    window.location = "/Account/Login";
+  </script>
 }
