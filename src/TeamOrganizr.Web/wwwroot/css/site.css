@@ -21,6 +21,10 @@
     width: 100%;
 }
 
+footer{
+  color:lightgray;
+}
+
 .navbar-default {
   background-color: #ffffff;
   border-color: #e4e2e2;

@@ -7,6 +7,7 @@
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -38,10 +39,14 @@
             </div>
         </div>
     </nav>
-  <div class="container body-content">    
-          @RenderBody()
-  </div>
+  <div class="container body-content">
+    @RenderBody()
 
+    <footer>
+      <hr />
+      &copy; @DateTime.Today.Year Programagic
+    </footer>
+  </div>
       <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

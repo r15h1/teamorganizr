@@ -12,9 +12,9 @@ namespace TeamOrganizr.Web.Controllers
         public IEnumerable<Squad> Get()
         {
           return new List<Squad> {
-            new Squad{ Desc = "U17, U16, U15 technical training", Name="U17 Technical Squad" },
-            new Squad{ Desc = "U14", Name="U14" },
-            new Squad{ Desc = "U13", Name="U13" },
+            new Squad{ Desc = "U17, U16, U15 technical training", Name="U17 Technical Squad", Players = 13 },
+            new Squad{ Desc = "U14", Name="U14", Players = 10 },
+            new Squad{ Desc = "U13", Name="U13", Players = 17 },
           };
         }
 
@@ -47,6 +47,7 @@ namespace TeamOrganizr.Web.Controllers
     {
       public string Desc { get; internal set; }
       public string Name { get; internal set; }
+      public int Players{ get; internal set; }
     }
   }
 }
