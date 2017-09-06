@@ -21,15 +21,15 @@
     width: 100%;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+.navbar-default {
+  background-color: #ffffff;
+  border-color: #e4e2e2;
 }
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
+  /* Hide captions */
+  .carousel-caption {
         display: none;
     }
 }
