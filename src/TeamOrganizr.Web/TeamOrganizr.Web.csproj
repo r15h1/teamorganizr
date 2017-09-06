@@ -21,4 +21,7 @@
     <ProjectReference Include="..\TeamOrganizr.Core\TeamOrganizr.Core.csproj" />
     <ProjectReference Include="..\TeamOrganizr.Lib\TeamOrganizr.Lib.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\scripts\" />
+  </ItemGroup>
 </Project>

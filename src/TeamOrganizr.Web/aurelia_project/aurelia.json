@@ -18,19 +18,19 @@
         "transform-es2015-modules-amd"
       ]
     },
-    "source": "src/**/*.js"
+    "source": "aurelia_src/**/*.js"
   },
   "markupProcessor": {
     "id": "none",
     "displayName": "None",
     "fileExtension": ".html",
-    "source": "src/**/*.html"
+    "source": "aurelia_src/**/*.html"
   },
   "cssProcessor": {
     "id": "none",
     "displayName": "None",
     "fileExtension": ".css",
-    "source": "src/**/*.css"
+    "source": "aurelia_src/**/*.css"
   },
   "editor": {
     "id": "visualstudio",
@@ -42,7 +42,7 @@
     "source": "test/unit/**/*.js"
   },
   "paths": {
-    "root": "src",
+    "root": "aurelia_src",
     "resources": "resources",
     "elements": "resources/elements",
     "attributes": "resources/attributes",
@@ -103,6 +103,7 @@
           "aurelia-bootstrapper",
           "aurelia-dependency-injection",
           "aurelia-event-aggregator",
+          "aurelia-fetch-client",
           "aurelia-framework",
           "aurelia-history",
           "aurelia-history-browser",
