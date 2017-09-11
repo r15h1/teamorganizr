@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using TeamOrganizr.Web.Data;
 using TeamOrganizr.Web.Models;
 using TeamOrganizr.Web.Services;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace TeamOrganizr.Web
 {
@@ -48,17 +50,20 @@ namespace TeamOrganizr.Web
 
               // User settings
               options.User.RequireUniqueEmail = true;
+              
             });
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
 
-            //services.AddAuthentication().AddFacebook(facebookOptions =>
-            //{
-            //  facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
-            //  facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
-            //});
+      //services.AddAuthentication().AddFacebook(facebookOptions =>
+      //{
+      //  facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+      //  facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+      //});
 
-            // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
+      // Add application services.
+      services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
         }
@@ -77,9 +82,9 @@ namespace TeamOrganizr.Web
             }
 
             app.UseStaticFiles();
-            app.UseAuthentication();
+      app.UseAuthentication();
 
-            app.UseMvc(routes =>
+      app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",

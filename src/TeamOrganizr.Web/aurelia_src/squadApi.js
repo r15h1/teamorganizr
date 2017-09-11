@@ -8,7 +8,11 @@ export class SquadApi {
         this.httpClient = http;
         this.httpClient.configure(config => {
             config
-                .withDefaults({ headers: { 'Accept': 'application/json' } })
+                .withDefaults({
+                    credentials: 'same-origin',
+                    headers: { 'Accept': 'application/json' }
+                })
+
                 .withBaseUrl('api/');
         });
         

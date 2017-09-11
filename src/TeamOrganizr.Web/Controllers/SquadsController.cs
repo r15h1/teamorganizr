@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TeamOrganizr.Web.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     public class SquadsController : Controller
     {
